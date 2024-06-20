@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://sgbi32ccu33p"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_20m25"]
+[ext_resource type="Texture2D" uid="uid://bv0s4euxykisu" path="res://assets/role/玩家行走人偶-stand_down-000.png" id="1_h3g3p"]
+[ext_resource type="Texture2D" uid="uid://dbdwpug164dkm" path="res://assets/role/玩家行走人偶-walk_down-000.png" id="2_mml5u"]
+[ext_resource type="Texture2D" uid="uid://dbhgrbriuk73" path="res://assets/role/玩家行走人偶-walk_down-001.png" id="3_yp21w"]
+[ext_resource type="Texture2D" uid="uid://bmmyrok6gvtns" path="res://assets/role/玩家行走人偶-stand_left-000.png" id="4_rrigy"]
+[ext_resource type="Texture2D" uid="uid://b3uo6noyk1s3k" path="res://assets/role/玩家行走人偶-walk_left-001.png" id="5_dhrsp"]
+[ext_resource type="Texture2D" uid="uid://c2muapuwcbqe3" path="res://assets/role/玩家行走人偶-walk_left-000.png" id="6_iqirf"]
+[ext_resource type="Texture2D" uid="uid://cw63eyksqih8w" path="res://assets/role/玩家行走人偶-stand_right-000.png" id="7_omrg3"]
+[ext_resource type="Texture2D" uid="uid://rfjwu1h6yfbh" path="res://assets/role/玩家行走人偶-walk_right-001.png" id="8_0n487"]
+[ext_resource type="Texture2D" uid="uid://dgl2jj7j5i6ce" path="res://assets/role/玩家行走人偶-walk_right-000.png" id="9_0yinn"]
+[ext_resource type="Texture2D" uid="uid://1u0aivvee4lm" path="res://assets/role/玩家行走人偶-stand_up-000.png" id="10_le26v"]
+[ext_resource type="Texture2D" uid="uid://bvcfnsqcgbola" path="res://assets/role/玩家行走人偶-walk_up-000.png" id="11_cdabq"]
+[ext_resource type="Texture2D" uid="uid://cjk1pcx7kkohx" path="res://assets/role/玩家行走人偶-walk_up-001.png" id="12_b6s6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0snon"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1afk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h3g3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mml5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_h3g3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yp21w")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h3g3p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rrigy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dhrsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rrigy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iqirf")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_omrg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0n487")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_omrg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0yinn")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_le26v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cdabq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_le26v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b6s6j")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_20m25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0snon")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1afk2")
+animation = &"idle"

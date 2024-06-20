@@ -103,4 +103,4 @@ shape = SubResource("RectangleShape2D_0snon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1afk2")
-animation = &"idle"
+animation = &"up"

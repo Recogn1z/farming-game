@@ -8,13 +8,13 @@ func _process(delta):
 	var motion = Vector2()
 
 	# 检测按键输入
-	if Input.is_action_pressed('ui_right'):
+	if Input.is_action_pressed('right'):
 		motion.x += 1
-	if Input.is_action_pressed('ui_left'):
+	if Input.is_action_pressed('left'):
 		motion.x -= 1
-	if Input.is_action_pressed('ui_down'):
+	if Input.is_action_pressed('down'):
 		motion.y += 1
-	if Input.is_action_pressed('ui_up'):
+	if Input.is_action_pressed('up'):
 		motion.y -= 1
 
 	# 根据输入更新位置
@@ -28,9 +28,9 @@ func _process(delta):
 		elif motion.x < 0:
 			animated_sprite_2d.play("left")
 		elif motion.y > 0:
-			animated_sprite_2d.play("up")  # 如果有向上走的动画
+			animated_sprite_2d.play("down")  # 如果有向上走的动画
 		elif motion.y < 0:
-			animated_sprite_2d.play("down")  # 添加向下走的动画处理
+			animated_sprite_2d.play("up")  # 添加向下走的动画处理
 	else:
 		animated_sprite_2d.play("idle")  # 停止当前动画
 
